@@ -493,6 +493,9 @@ async def test_domain(url: str):
             status_code=400,
             detail=f"Error analyzing domain: {str(e)}"
         )
+@app.get("/")
+def read_root():
+    return {"message": "✅ FastAPI app is running!"}
 
 @app.post("/verify")
 async def verify_news(news: NewsVerificationRequest):
